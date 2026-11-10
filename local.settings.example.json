@@ -1,0 +1,19 @@
+{
+  "Mongo": {
+    "ConnectionString": "mongodb+srv://USER:PASSWORD@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority",
+    "DatabaseName": "GuangYingTongTu",
+    "UsersCollectionName": "users"
+  },
+  "Jwt": {
+    "Issuer": "GuangYingTongTu.Api",
+    "Audience": "GuangYingTongTu.Unity",
+    "Key": "replace-with-at-least-32-random-characters",
+    "ExpirationMinutes": 720
+  },
+  "Bootstrap": {
+    "AdminUsername": "admin",
+    "AdminPassword": "replace-with-a-strong-admin-password",
+    "VipUsername": "vip_test",
+    "VipPassword": "replace-with-a-strong-vip-password"
+  }
+}

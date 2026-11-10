@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: guangyingtongtu-api
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: MONGO_CONNECTION_STRING
+        sync: false
+      - key: JWT_KEY
+        sync: false
+      - key: Mongo__DatabaseName
+        value: GuangYingTongTu
+      - key: Mongo__UsersCollectionName
+        value: users
+      - key: Jwt__Issuer
+        value: GuangYingTongTu.Api
+      - key: Jwt__Audience
+        value: GuangYingTongTu.Unity
+      - key: Jwt__ExpirationMinutes
+        value: "720"

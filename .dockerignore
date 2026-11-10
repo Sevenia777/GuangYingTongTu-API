@@ -1,0 +1,7 @@
+bin/
+obj/
+.env
+local.settings.json
+.local-api*.log
+*.user
+*.suo

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>光影同途 · 账号后台</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section id="loginView" class="card login-card">
+      <div class="brand">
+        <span class="brand-mark">光</span>
+        <div>
+          <h1>光影同途</h1>
+          <p>管理员账号后台</p>
+        </div>
+      </div>
+      <form id="loginForm">
+        <label>管理员用户名
+          <input id="loginUsername" name="username" autocomplete="username" required>
+        </label>
+        <label>密码
+          <input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button type="submit" class="primary">登录后台</button>
+        <p id="loginStatus" class="status" role="status"></p>
+      </form>
+    </section>
+
+    <section id="dashboardView" class="dashboard hidden">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ACCOUNT CONTROL</p>
+          <h1>账号管理</h1>
+        </div>
+        <div class="session">
+          <span id="adminName"></span>
+          <button id="logoutButton" class="ghost">退出</button>
+        </div>
+      </header>
+
+      <div class="grid">
+        <section class="card create-card">
+          <h2>手动新增账号</h2>
+          <form id="createForm">
+            <label>用户名
+              <input id="newUsername" pattern="[A-Za-z0-9_]{4,32}" required>
+            </label>
+            <label>初始密码
+              <input id="newPassword" type="password" minlength="6" maxlength="128" required>
+            </label>
+            <label>角色
+              <select id="newRole">
+                <option value="player">player · 普通玩家</option>
+                <option value="vip">vip · 高级账户</option>
+                <option value="admin">admin · 管理员</option>
+              </select>
+            </label>
+            <button type="submit" class="primary">创建账号</button>
+            <p id="createStatus" class="status" role="status"></p>
+          </form>
+        </section>
+
+        <section class="card list-card">
+          <div class="section-title">
+            <div>
+              <h2>用户列表</h2>
+              <p id="userCount">共 0 个账号</p>
+            </div>
+            <button id="refreshButton" class="ghost">刷新</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>用户名</th>
+                  <th>角色</th>
+                  <th>创建时间（UTC）</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="userRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
